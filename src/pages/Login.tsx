@@ -10,8 +10,8 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      if (isAdmin) navigate('./admin');
-      else navigate('/visual-novel');
+      if (isAdmin) navigate('/admin');
+      else navigate('/');
     }
   }, [user, isAdmin, navigate]);
 
