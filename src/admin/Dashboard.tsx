@@ -149,7 +149,7 @@ const Dashboard: React.FC = () => {
 
           <button
             className="ghost-btn"
-            onClick={() => navigate('/visual-novel')}
+            onClick={() => navigate('/')}
             style={{ width: '100%', justifyContent: 'flex-start', padding: '0.6rem 0.8rem', fontSize: '0.8rem' }}
           >
             <Home size={14} /> View Site
