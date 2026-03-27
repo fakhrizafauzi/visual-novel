@@ -16,7 +16,7 @@ function App() {
         <AuthProvider>
           <SnackbarProvider>
             <GameProvider>
-              <Router basename={import.meta.env.BASE_URL}>
+              <Router>
                 <div className="app-container" style={{ minHeight: '100vh', width: '100vw', display: 'flex', flexDirection: 'column', position: 'relative' }}>
                   <Routes>
                     <Route path="/" element={<><BackgroundAccents /><Game /></>} />
