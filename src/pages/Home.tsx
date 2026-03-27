@@ -69,7 +69,7 @@ const Home: React.FC = () => {
             </motion.button>
           </Link>
           
-          <Link to="/login">
+          <Link to="./login">
             <motion.button 
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
