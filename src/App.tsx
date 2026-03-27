@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Login, Game, NotFound } from './pages';
 import { Dashboard as AdminDashboard } from './admin';
 import { AuthProvider } from './context/AuthContext';
@@ -16,25 +16,19 @@ function App() {
         <AuthProvider>
           <SnackbarProvider>
             <GameProvider>
-              <Router>
+              <Router basename={import.meta.env.BASE_URL}>
                 <div className="app-container" style={{ minHeight: '100vh', width: '100vw', display: 'flex', flexDirection: 'column', position: 'relative' }}>
                   <Routes>
-                    {/* Real App Routes */}
-                    <Route path="/visual-novel" element={<><BackgroundAccents /><Game /></>} />
-                    <Route path="/visual-novel/login" element={<><BackgroundAccents /><Login /></>} />
+                    <Route path="/" element={<><BackgroundAccents /><Game /></>} />
+                    <Route path="/login" element={<><BackgroundAccents /><Login /></>} />
                     <Route 
-                      path="/visual-novel/admin/*" 
+                      path="/admin/*" 
                       element={
                         <ProtectedRoute requireAdmin>
                           <AdminDashboard />
                         </ProtectedRoute>
                       } 
                     />
-                    
-                    {/* Root Redirect (Optional but helpful) */}
-                    <Route path="/" element={<Navigate to="/visual-novel" replace />} />
-
-                    {/* Catch-all for everything else including /visual-novel-s */}
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </div>
